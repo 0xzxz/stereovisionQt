@@ -160,7 +160,6 @@ int MainWindow::on_captureImagePairs_clicked()
     std::string savedDir="./";
     int iFileName = 1;
     bool showRectified = true;
-    //    string imagelistfn = "/home/zhixian/Dropbox/AIMLab/Qt/stereoVisionQt/imagesCaptured/stereo_calib.xml";
     cameraL = cv::VideoCapture(cameraID_L);
     cameraR = cv::VideoCapture(cameraID_R);
 
@@ -571,7 +570,7 @@ int MainWindow::on_loadandStereoCalibration_clicked()
 
         //***************************** PCL ***********************************//
         //*********************************************************************//
-        creatPointCloud(viewer, imgRRectified, disp8, Q03, Q13, Q23, Q32, Q33);
+        //creatPointCloud(viewer, imgRRectified, disp8, Q03, Q13, Q23, Q32, Q33);
     }
     cameraL.release();
     cameraR.release();
@@ -625,7 +624,7 @@ void MainWindow::creatPointCloud(boost::shared_ptr<pcl::visualization::PCLVisual
     point_cloud_ptr->height = 1;
     //    point_cloud_ptr->width = 1920;
     //    point_cloud_ptr->height = 1080;
-    //viewer->removeAllPointClouds();
+    viewer->removeAllPointClouds();
     viewer->addPointCloud(point_cloud_ptr, "point cloud");
     viewer->spinOnce();
 }
