@@ -113,10 +113,10 @@ void MainWindow::on_enableStereoCamera_toggled()
 
     cv::namedWindow("Left Camera ", 1);
     cv::namedWindow("Right Camera ", 1);
-
     cv::Mat frameL;
     cv::Mat frameR;
 
+    std::cout << "Make sure the NumLock is off and Press ESC to quit cameras...." << std::endl;
     while(1)
     {
         cameraL >> frameL;
@@ -128,7 +128,6 @@ void MainWindow::on_enableStereoCamera_toggled()
     }
 
     std::cout << "Signal to stop camras ..." <<std::endl;
-    std::cout << "Press ESC to quit cameras...." << std::endl;
     std::cout << "Closing cameras" << std::endl;
     cameraL.release();
     cameraR.release();
